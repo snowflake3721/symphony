@@ -81,8 +81,8 @@ public final class MailSender implements java.io.Serializable {
 	private static final String mail_port = Symphonys.get("mail.port");
 	private static final boolean mail_smtp_auth = Boolean.valueOf(Symphonys.get("mail.smtp.auth"));
 	private static final boolean mail_smtp_ssl = Boolean.valueOf(Symphonys.get("mail.smtp.ssl"));
-	public static final String sender = Symphonys.get("mail.smtp.sender");
-	public static final String username = Symphonys.get("mail.smtp.username");
+	private static final String sender = Symphonys.get("mail.smtp.sender");
+	private static final String username = Symphonys.get("mail.smtp.username");
 	private static final String password = Symphonys.get("mail.smtp.passsword");/* 换成自己的密码哦 */
 	private static final String saved_path = Symphonys.get("saved.eml.path");
 	private static Properties prop = new Properties();
@@ -260,6 +260,7 @@ public final class MailSender implements java.io.Serializable {
 
 		}
 		text.setContent(content, CHARSET);
+		message.saveChanges();
 		saveMessageFile(message, fileName);
 
 		return message;
@@ -267,7 +268,6 @@ public final class MailSender implements java.io.Serializable {
 
 	private void saveMessageFile(MimeMessage message, String fileName)
 			throws MessagingException, FileNotFoundException, IOException {
-		message.saveChanges();
 		// 将创建好的邮件写入到E盘以文件的形式进行保存
 		FileOutputStream fos = null;
 		try {
