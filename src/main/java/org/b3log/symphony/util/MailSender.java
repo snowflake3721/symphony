@@ -37,7 +37,9 @@ import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
 
 /**
- * Send Email use SMTP 功能：三种类型的邮件 SIMPLE 简单类型，可以发送html格式文本,遵从freemarker模板的设置
+ * Send Email use SMTP 
+ * 功能：三种类型的邮件 
+ * SIMPLE 简单类型，可以发送html格式文本,遵从freemarker模板的设置
  * IMAGE html格式类型，同时会保存html里面的 image 到磁盘，并生成eml保存到服务器的配置目录 , 
  * MULTI 带附件的  Attachment，TODO
  * 
